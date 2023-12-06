@@ -1,0 +1,26 @@
+android_app {
+    name: "Gramophone",
+    defaults: ["aapt_version_code_defaults"],
+    product_specific: true,
+    sdk_version: "current",
+    manifest: "src/main/AndroidManifest.xml",
+    certificate: "platform",
+    resource_dirs: ["src/main/res"],
+    srcs: [
+        "src/main/kotlin/**/*.kt",
+    ],
+    static_libs: [
+    ],
+    optional_uses_libs: [
+        "androidx.window.extensions",
+        "androidx.window.sidecar",
+    ],
+    kotlincflags: [
+        "-opt-in=kotlin.Experimental",
+        "-opt-in=kotlin.ExperimentalStdlibApi",
+    ],
+    optimize: {
+        proguard_flags_files: ["proguard-rules.pro"],
+    },
+	overrides: ["Music", "Eleven"],
+}
