@@ -1,12 +1,29 @@
 @file:Suppress("UnstableApiUsage")
 
 import java.util.Properties
+import org.lineageos.generatebp.GenerateBpPlugin
+import org.lineageos.generatebp.GenerateBpPluginExtension
+import org.lineageos.generatebp.models.Module
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.parcelize")
+}
+
+apply {
+    plugin<GenerateBpPlugin>()
+}
+
+buildscript {
+    repositories {
+        maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/v1.4/.m2")
+    }
+
+    dependencies {
+        classpath("org.lineageos:gradle-generatebp:+")
+    }
 }
 
 android {
@@ -116,5 +133,19 @@ dependencies {
 fun readProperties(propertiesFile: File) = Properties().apply {
     propertiesFile.inputStream().use { fis ->
         load(fis)
+    }
+}
+
+configure<GenerateBpPluginExtension> {
+    targetSdk.set(android.defaultConfig.targetSdk!!)
+    availableInAOSP.set { module: Module ->
+        when {
+            module.group.startsWith("org.jetbrains") -> true
+            module.group == "com.google.auto.value" -> true
+            module.group == "com.google.errorprone" -> true
+            module.group == "com.google.guava" -> true
+            module.group == "junit" -> true
+            else -> false
+        }
     }
 }
