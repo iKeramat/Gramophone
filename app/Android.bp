@@ -8,6 +8,7 @@ android_app {
     resource_dirs: ["src/main/res"],
     srcs: [
         "src/main/kotlin/**/*.kt",
+        "src/main/kotlin/**/*.java",
     ],
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
