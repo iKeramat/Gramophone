@@ -92,62 +92,6 @@ android_library {
 }
 
 android_library_import {
-    name: "Gramophone_androidx.annotation_annotation-experimental-nodeps",
-    aars: ["androidx/annotation/annotation-experimental/1.3.1/annotation-experimental-1.3.1.aar"],
-    sdk_version: "34",
-    min_sdk_version: "14",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "kotlin-stdlib",
-    ],
-}
-
-android_library {
-    name: "Gramophone_androidx.annotation_annotation-experimental",
-    sdk_version: "34",
-    min_sdk_version: "14",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    manifest: "androidx/annotation/annotation-experimental/1.3.1/AndroidManifest.xml",
-    static_libs: [
-        "Gramophone_androidx.annotation_annotation-experimental-nodeps",
-        "kotlin-stdlib",
-    ],
-    java_version: "1.7",
-}
-
-java_import {
-    name: "Gramophone_androidx.annotation_annotation-jvm-nodeps",
-    jars: ["androidx/annotation/annotation-jvm/1.6.0/annotation-jvm-1.6.0.jar"],
-    sdk_version: "34",
-    min_sdk_version: "14",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-}
-
-java_library_static {
-    name: "Gramophone_androidx.annotation_annotation-jvm",
-    sdk_version: "34",
-    min_sdk_version: "14",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "Gramophone_androidx.annotation_annotation-jvm-nodeps",
-        "kotlin-stdlib",
-    ],
-    java_version: "1.7",
-}
-
-android_library_import {
     name: "Gramophone_androidx.appcompat_appcompat-resources-nodeps",
     aars: ["androidx/appcompat/appcompat-resources/1.7.0-alpha03/appcompat-resources-1.7.0-alpha03.aar"],
     sdk_version: "34",
@@ -541,7 +485,7 @@ android_library_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.collection_collection",
         "Gramophone_androidx.concurrent_concurrent-futures",
         "Gramophone_androidx.interpolator_interpolator",
@@ -562,7 +506,7 @@ android_library {
     manifest: "androidx/core/core/1.13.0-alpha02/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.core_core-nodeps",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.collection_collection",
         "Gramophone_androidx.concurrent_concurrent-futures",
         "Gramophone_androidx.interpolator_interpolator",
@@ -912,7 +856,7 @@ android_library_import {
     ],
     static_libs: [
         "Gramophone_androidx.activity_activity",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.collection_collection",
         "Gramophone_androidx.core_core-ktx",
         "Gramophone_androidx.lifecycle_lifecycle-livedata-core",
@@ -939,7 +883,7 @@ android_library {
     static_libs: [
         "Gramophone_androidx.fragment_fragment-nodeps",
         "Gramophone_androidx.activity_activity",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.collection_collection",
         "Gramophone_androidx.core_core-ktx",
         "Gramophone_androidx.lifecycle_lifecycle-livedata-core",
@@ -1469,7 +1413,7 @@ android_library_import {
     ],
     static_libs: [
         "guava",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
     ],
 }
 
@@ -1485,7 +1429,7 @@ android_library {
     static_libs: [
         "Gramophone_androidx.media3_media3-common-nodeps",
         "guava",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
     ],
     java_version: "1.7",
 }
@@ -2297,7 +2241,7 @@ android_library_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.collection_collection",
         "Gramophone_androidx.core_core",
         "Gramophone_androidx.fragment_fragment",
@@ -2316,7 +2260,7 @@ android_library {
     manifest: "androidx/viewpager2/viewpager2/1.1.0-beta02/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.viewpager2_viewpager2-nodeps",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.collection_collection",
         "Gramophone_androidx.core_core",
         "Gramophone_androidx.fragment_fragment",
@@ -2499,7 +2443,7 @@ android_library_import {
         "Gramophone_androidx.core_core",
         "Gramophone_androidx.drawerlayout_drawerlayout",
         "Gramophone_androidx.dynamicanimation_dynamicanimation",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.fragment_fragment",
         "Gramophone_androidx.lifecycle_lifecycle-runtime",
         "Gramophone_androidx.recyclerview_recyclerview",
@@ -2530,7 +2474,7 @@ android_library {
         "Gramophone_androidx.core_core",
         "Gramophone_androidx.drawerlayout_drawerlayout",
         "Gramophone_androidx.dynamicanimation_dynamicanimation",
-        "Gramophone_androidx.annotation_annotation-experimental",
+        "androidx.annotation_annotation-experimental",
         "Gramophone_androidx.fragment_fragment",
         "Gramophone_androidx.lifecycle_lifecycle-runtime",
         "Gramophone_androidx.recyclerview_recyclerview",

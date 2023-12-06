@@ -12,6 +12,7 @@ android_app {
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
         "Gramophone_androidx.core_core-ktx",
+        "androidx.annotation_annotation",
         "Gramophone_androidx.activity_activity-ktx",
         "Gramophone_androidx.transition_transition-ktx",
         "Gramophone_androidx.fragment_fragment-ktx",

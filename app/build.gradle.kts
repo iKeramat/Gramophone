@@ -113,6 +113,7 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation("androidx.annotation:annotation:1.7.0")
     implementation("androidx.transition:transition-ktx:1.5.0-alpha06")
     implementation("androidx.fragment:fragment-ktx:1.7.0-alpha09")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
@@ -140,6 +141,9 @@ configure<GenerateBpPluginExtension> {
     targetSdk.set(android.defaultConfig.targetSdk!!)
     availableInAOSP.set { module: Module ->
         when {
+            module.group.startsWith("androidx") -> {
+                module.group.startsWith("androidx.annotation")
+            }
             module.group.startsWith("org.jetbrains") -> true
             module.group == "com.google.auto.value" -> true
             module.group == "com.google.errorprone" -> true
