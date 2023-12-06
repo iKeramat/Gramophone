@@ -10,6 +10,21 @@ android_app {
         "src/main/kotlin/**/*.kt",
     ],
     static_libs: [
+        // DO NOT EDIT THIS SECTION MANUALLY
+        "Gramophone_androidx.core_core-ktx",
+        "Gramophone_androidx.activity_activity-ktx",
+        "Gramophone_androidx.transition_transition-ktx",
+        "Gramophone_androidx.fragment_fragment-ktx",
+        "Gramophone_androidx.lifecycle_lifecycle-viewmodel-ktx",
+        "Gramophone_androidx.appcompat_appcompat",
+        "Gramophone_androidx.constraintlayout_constraintlayout",
+        "Gramophone_androidx.media3_media3-exoplayer",
+        "Gramophone_androidx.media3_media3-session",
+        "Gramophone_androidx.preference_preference-ktx",
+        "Gramophone_com.github.bumptech.glide_glide",
+        "Gramophone_com.google.android.material_material",
+        "Gramophone_net.jthink_jaudiotagger",
+        "Gramophone_me.zhanghai.android.fastscroll_library",
     ],
     optional_uses_libs: [
         "androidx.window.extensions",
