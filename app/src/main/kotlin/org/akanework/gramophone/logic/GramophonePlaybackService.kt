@@ -193,7 +193,7 @@ class GramophonePlaybackService : MediaLibraryService(),
                         true
                     )
                 ) // hardware/system-accelerated playback speed
-                setExtensionRendererMode(DefaultRenderersFactory.EXTENSION_RENDERER_MODE_ON)
+                setExtensionRendererMode(DefaultRenderersFactory.EXTENSION_RENDERER_MODE_PREFER)
             }
         )
             .setWakeMode(C.WAKE_MODE_LOCAL)
