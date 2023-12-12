@@ -6,6 +6,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.parcelize")
 }
 
 android {
@@ -58,6 +59,15 @@ android {
         }
     }
 
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            isUniversalApk = true
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -103,6 +113,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0-rc01")
     implementation("net.jthink:jaudiotagger:3.0.1")
     implementation("me.zhanghai.android.fastscroll:library:1.3.0")
+    implementation(files("../libs/media3-decode-ffmpeg-1.2.0.aar"))
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
     ksp("com.github.bumptech.glide:ksp:4.15.1")
 }

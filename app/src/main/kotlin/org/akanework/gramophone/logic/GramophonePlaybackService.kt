@@ -20,6 +20,7 @@ package org.akanework.gramophone.logic
 import android.app.PendingIntent.FLAG_IMMUTABLE
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
 import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.content.Intent
 import android.media.audiofx.AudioEffect
 import android.os.Bundle
@@ -31,8 +32,13 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DataSourceBitmapLoader
+import androidx.media3.decoder.ffmpeg.FfmpegAudioRenderer
 import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.Renderer
+import androidx.media3.exoplayer.audio.AudioRendererEventListener
+import androidx.media3.exoplayer.audio.AudioSink
+import androidx.media3.exoplayer.mediacodec.MediaCodecSelector
 import androidx.media3.session.CacheBitmapLoader
 import androidx.media3.session.CommandButton
 import androidx.media3.session.DefaultMediaNotificationProvider
@@ -49,6 +55,7 @@ import com.google.common.util.concurrent.SettableFuture
 import org.akanework.gramophone.R
 import org.akanework.gramophone.logic.utils.LastPlayedManager
 import org.akanework.gramophone.ui.MainActivity
+import java.util.ArrayList
 
 
 /**
@@ -154,16 +161,40 @@ class GramophonePlaybackService : MediaLibraryService(),
 
         val player = ExoPlayer.Builder(
             this,
-            DefaultRenderersFactory(this)
-                .setEnableAudioFloatOutput(prefs.getBoolean("floatoutput", false))
-                .setEnableDecoderFallback(true)
-                .setEnableAudioTrackPlaybackParams(
+            object : DefaultRenderersFactory(this) {
+                override fun buildAudioRenderers(
+                    context: Context,
+                    extensionRendererMode: Int,
+                    mediaCodecSelector: MediaCodecSelector,
+                    enableDecoderFallback: Boolean,
+                    audioSink: AudioSink,
+                    eventHandler: Handler,
+                    eventListener: AudioRendererEventListener,
+                    out: ArrayList<Renderer>
+                ) {
+                    out.add(FfmpegAudioRenderer())
+                    super.buildAudioRenderers(
+                        context,
+                        extensionRendererMode,
+                        mediaCodecSelector,
+                        enableDecoderFallback,
+                        audioSink,
+                        eventHandler,
+                        eventListener,
+                        out
+                    )
+                }
+            }.apply {
+                setEnableAudioFloatOutput(prefs.getBoolean("floatoutput", false))
+                setEnableDecoderFallback(true)
+                setEnableAudioTrackPlaybackParams(
                     prefs.getBoolean(
                         "ps_hardware_acc",
                         true
                     )
                 ) // hardware/system-accelerated playback speed
-                .setExtensionRendererMode(DefaultRenderersFactory.EXTENSION_RENDERER_MODE_ON)
+                setExtensionRendererMode(DefaultRenderersFactory.EXTENSION_RENDERER_MODE_ON)
+            }
         )
             .setWakeMode(C.WAKE_MODE_LOCAL)
             .setSkipSilenceEnabled(prefs.getBoolean("skip_silence", false))
