@@ -1559,6 +1559,44 @@ android_library {
 }
 
 android_library_import {
+    name: "Gramophone_androidx.media3_media3-exoplayer-midi-nodeps",
+    aars: ["androidx/media3/media3-exoplayer-midi/1.2.0/media3-exoplayer-midi-1.2.0.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "Gramophone_androidx.media3_media3-exoplayer",
+        "Gramophone_androidx.media3_media3-decoder",
+        "Gramophone_androidx.media3_media3-extractor",
+        "Gramophone_androidx.media3_media3-common",
+        "Gramophone_com.github.philburk_jsyn",
+    ],
+}
+
+android_library {
+    name: "Gramophone_androidx.media3_media3-exoplayer-midi",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "androidx/media3/media3-exoplayer-midi/1.2.0/AndroidManifest.xml",
+    static_libs: [
+        "Gramophone_androidx.media3_media3-exoplayer-midi-nodeps",
+        "Gramophone_androidx.media3_media3-exoplayer",
+        "Gramophone_androidx.media3_media3-decoder",
+        "Gramophone_androidx.media3_media3-extractor",
+        "Gramophone_androidx.media3_media3-common",
+        "Gramophone_com.github.philburk_jsyn",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
     name: "Gramophone_androidx.media3_media3-exoplayer-nodeps",
     aars: ["androidx/media3/media3-exoplayer/1.2.0/media3-exoplayer-1.2.0.aar"],
     sdk_version: "34",
@@ -2421,6 +2459,31 @@ android_library {
         "Gramophone_androidx.vectordrawable_vectordrawable-animated",
         "Gramophone_androidx.exifinterface_exifinterface",
         "Gramophone_androidx.tracing_tracing",
+    ],
+    java_version: "1.7",
+}
+
+java_import {
+    name: "Gramophone_com.github.philburk_jsyn-nodeps",
+    jars: ["com/github/philburk/jsyn/40a41092cbab558d7d410ec43d93bb1e4121e86a/jsyn-40a41092cbab558d7d410ec43d93bb1e4121e86a.jar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+java_library_static {
+    name: "Gramophone_com.github.philburk_jsyn",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "Gramophone_com.github.philburk_jsyn-nodeps",
     ],
     java_version: "1.7",
 }
