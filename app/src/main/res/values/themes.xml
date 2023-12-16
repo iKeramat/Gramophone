@@ -26,12 +26,9 @@
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
 
-    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="textAllCaps">true</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textSize">13.5sp</item>
+    <style name="TabTextAppearance" parent="TextAppearance.Material3.TitleSmall">
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
 
     <style name="BottomPlayerSheetStyle" parent="Widget.Material3.BottomSheet">
