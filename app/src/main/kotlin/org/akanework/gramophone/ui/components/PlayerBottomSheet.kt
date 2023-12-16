@@ -87,9 +87,11 @@ import kotlinx.coroutines.withContext
 import me.zhanghai.android.fastscroll.FastScrollerBuilder
 import org.akanework.gramophone.R
 import org.akanework.gramophone.logic.GramophonePlaybackService
+import org.akanework.gramophone.logic.GramophonePlaybackService.Companion.SERVICE_GET_LYRICS
 import org.akanework.gramophone.logic.dp
 import org.akanework.gramophone.logic.fadInAnimation
 import org.akanework.gramophone.logic.fadOutAnimation
+import org.akanework.gramophone.logic.getLyrics
 import org.akanework.gramophone.logic.getTimer
 import org.akanework.gramophone.logic.hasTimer
 import org.akanework.gramophone.logic.playOrPause
@@ -102,9 +104,6 @@ import org.akanework.gramophone.logic.utils.CalculationUtils
 import org.akanework.gramophone.logic.utils.ColorUtils
 import org.akanework.gramophone.logic.utils.MediaStoreUtils
 import org.akanework.gramophone.ui.MainActivity
-import org.jaudiotagger.audio.AudioFileIO
-import org.jaudiotagger.tag.FieldKey
-import java.io.File
 import java.io.FileNotFoundException
 import kotlin.math.min
 
@@ -682,7 +681,7 @@ class PlayerBottomSheet private constructor(
         bottomSheetFullLyricLinearLayoutManager.startSmoothScroll(
             smoothScroller
         )
-        bottomSheetFullLyricAdapter.updateHighlight(-1)
+        bottomSheetFullLyricAdapter.updateHighlight(0)
     }
 
     override fun onViewAdded(child: View?) {
@@ -706,8 +705,7 @@ class PlayerBottomSheet private constructor(
                     if (bottomSheetFullLyricRecyclerView.visibility ==
                         View.VISIBLE
                     ) {
-                        bottomSheetFullLyricRecyclerView.fadOutAnimation(LYRIC_FADE_TRANSITION_SEC)
-                        bottomSheetLyricButton.isChecked = false
+                        // TODO
                     } else {
                         standardBottomSheetBehavior!!.updateBackProgress(backEvent)
                     }
@@ -728,7 +726,7 @@ class PlayerBottomSheet private constructor(
                     if (bottomSheetFullLyricRecyclerView.visibility ==
                         View.VISIBLE
                     ) {
-                        bottomSheetFullLyricRecyclerView.fadOutAnimation(LYRIC_FADE_TRANSITION_SEC)
+                        bottomSheetFullLyricRecyclerView.fadInAnimation(LYRIC_FADE_TRANSITION_SEC)
                         bottomSheetLyricButton.isChecked = false
                     } else {
                         standardBottomSheetBehavior!!.cancelBackProgress()
@@ -1324,102 +1322,6 @@ class PlayerBottomSheet private constructor(
             }
 
              */
-
-            try {
-                val audioFile =
-                    AudioFileIO.read(
-                        File(
-                            instance.currentMediaItem!!.mediaMetadata.extras!!.getString(
-                                "Path"
-                            )!!
-                        )
-                    )
-                val tag = audioFile.tag
-                val lyrics = tag.getFirst(FieldKey.LYRICS)
-                val parsedLyrics = MediaStoreUtils.parseLrcString(lyrics)
-                val subList =
-                    if (bottomSheetFullLyricList.size > 0)
-                        bottomSheetFullLyricList.subList(1, bottomSheetFullLyricList.size)
-                    else
-                        mutableListOf()
-                if (lyrics != null && lyrics.isNotEmpty() &&
-                    subList != parsedLyrics &&
-                    parsedLyrics.isNotEmpty()
-                ) {
-                    bottomSheetFullLyricList.clear()
-                    bottomSheetFullLyricList.add(MediaStoreUtils.Lyric())
-                    bottomSheetFullLyricList.addAll(parsedLyrics)
-                    bottomSheetFullLyricAdapter.notifyDataSetChanged()
-                    resetToDefaultLyricPosition()
-                } else if (parsedLyrics.isEmpty()) {
-                    try {
-                        val lrcFile = File(
-                            instance.currentMediaItem!!.mediaMetadata.extras!!.getString("Path")!!
-                                .substringBeforeLast('.') + ".lrc"
-                        )
-                        val stringBuilder = StringBuilder()
-                        lrcFile.forEachLine {
-                            stringBuilder.append(it).append("\n")
-                        }
-                        parsedLyrics.addAll(MediaStoreUtils.parseLrcString(stringBuilder.toString()))
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                    if (parsedLyrics.isEmpty()) {
-                        bottomSheetFullLyricList.clear()
-                        bottomSheetFullLyricList.add(
-                            MediaStoreUtils.Lyric(
-                                0,
-                                context.getString(R.string.no_lyric_found)
-                            )
-                        )
-                        bottomSheetFullLyricAdapter.notifyDataSetChanged()
-                        resetToDefaultLyricPosition()
-                    } else if (parsedLyrics != subList) {
-                        bottomSheetFullLyricList.clear()
-                        bottomSheetFullLyricList.add(MediaStoreUtils.Lyric())
-                        bottomSheetFullLyricList.addAll(parsedLyrics)
-                        bottomSheetFullLyricAdapter.notifyDataSetChanged()
-                        resetToDefaultLyricPosition()
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                val subList =
-                    if (bottomSheetFullLyricList.size > 0)
-                        bottomSheetFullLyricList.subList(1, bottomSheetFullLyricList.size)
-                    else
-                        mutableListOf()
-                var parsedLyrics = mutableListOf(
-                    MediaStoreUtils.Lyric(
-                        0,
-                        context.getString(R.string.music_format_not_supported)
-                    )
-                )
-                try {
-                    val lrcFile = File(
-                        instance.currentMediaItem!!.mediaMetadata.extras!!.getString("Path")!!
-                            .substringBeforeLast('.') + ".lrc"
-                    )
-                    val stringBuilder = StringBuilder()
-                    lrcFile.forEachLine {
-                        stringBuilder.append(it).append("\n")
-                    }
-                    val rawLrc = MediaStoreUtils.parseLrcString(stringBuilder.toString())
-                    if (rawLrc.isNotEmpty()) {
-                        rawLrc.add(0, MediaStoreUtils.Lyric())
-                        parsedLyrics = rawLrc
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-                if (parsedLyrics != subList) {
-                    bottomSheetFullLyricList.clear()
-                    bottomSheetFullLyricList.addAll(parsedLyrics)
-                    bottomSheetFullLyricAdapter.notifyDataSetChanged()
-                    resetToDefaultLyricPosition()
-                }
-            }
         }
         var newState = standardBottomSheetBehavior!!.state
         if (instance.mediaItemCount != 0 && visible) {
@@ -1449,13 +1351,33 @@ class PlayerBottomSheet private constructor(
     }
 
     private val sessionListener: MediaController.Listener = object : MediaController.Listener {
+        @SuppressLint("NotifyDataSetChanged")
         override fun onCustomCommand(
             controller: MediaController,
             command: SessionCommand,
             args: Bundle
         ): ListenableFuture<SessionResult> {
-            if (command.customAction == GramophonePlaybackService.SERVICE_TIMER_CHANGED) {
-                bottomSheetTimerButton.isChecked = controller.hasTimer()
+            when (command.customAction) {
+                GramophonePlaybackService.SERVICE_TIMER_CHANGED -> {
+                    bottomSheetTimerButton.isChecked = controller.hasTimer()
+                }
+                SERVICE_GET_LYRICS -> {
+                    bottomSheetFullLyricList.clear()
+                    val parsedLyrics = instance.getLyrics()
+                    if (parsedLyrics?.isEmpty() != false) {
+                        bottomSheetFullLyricList.add(
+                            MediaStoreUtils.Lyric(
+                                0,
+                                context.getString(R.string.no_lyric_found)
+                            )
+                        )
+                    } else {
+                        bottomSheetFullLyricList.add(MediaStoreUtils.Lyric())
+                        bottomSheetFullLyricList.addAll(parsedLyrics)
+                    }
+                    bottomSheetFullLyricAdapter.notifyDataSetChanged()
+                    resetToDefaultLyricPosition()
+                }
             }
             return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
         }

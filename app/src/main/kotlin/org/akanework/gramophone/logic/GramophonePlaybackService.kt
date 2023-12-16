@@ -30,6 +30,7 @@ import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
+import androidx.media3.common.Tracks
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DataSourceBitmapLoader
 import androidx.media3.decoder.ffmpeg.FfmpegAudioRenderer
@@ -53,7 +54,9 @@ import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.SettableFuture
 import org.akanework.gramophone.R
+import org.akanework.gramophone.logic.utils.LrcUtils.extractAndParseLyrics
 import org.akanework.gramophone.logic.utils.LastPlayedManager
+import org.akanework.gramophone.logic.utils.MediaStoreUtils
 import org.akanework.gramophone.ui.MainActivity
 import java.util.ArrayList
 
@@ -73,11 +76,14 @@ class GramophonePlaybackService : MediaLibraryService(),
         private const val PLAYBACK_REPEAT_ALL = "repeat_all"
         private const val PLAYBACK_REPEAT_ONE = "repeat_one"
 
-        // sent to PlayerBottomSheet
+        const val SERVICE_SET_TIMER = "set_timer"
+        const val SERVICE_QUERY_TIMER = "query_timer"
+        const val SERVICE_GET_LYRICS = "get_lyrics"
         const val SERVICE_TIMER_CHANGED = "changed_timer"
     }
 
     private var mediaSession: MediaLibrarySession? = null
+    private var lyrics: List<MediaStoreUtils.Lyric>? = null
     private lateinit var customCommands: List<CommandButton>
     private lateinit var handler: Handler
     private lateinit var lastPlayedManager: LastPlayedManager
@@ -116,7 +122,6 @@ class GramophonePlaybackService : MediaLibraryService(),
         }
 
     override fun onCreate() {
-
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         customCommands =
@@ -261,6 +266,7 @@ class GramophonePlaybackService : MediaLibraryService(),
         mediaSession!!.player.release()
         mediaSession!!.release()
         mediaSession = null
+        lyrics = null
         super.onDestroy()
     }
 
@@ -280,6 +286,7 @@ class GramophonePlaybackService : MediaLibraryService(),
         }
         availableSessionCommands.add(SessionCommand(SERVICE_SET_TIMER, Bundle.EMPTY))
         availableSessionCommands.add(SessionCommand(SERVICE_QUERY_TIMER, Bundle.EMPTY))
+        availableSessionCommands.add(SessionCommand(SERVICE_GET_LYRICS, Bundle.EMPTY))
         return MediaSession.ConnectionResult.AcceptedResultBuilder(session)
             .setAvailableSessionCommands(availableSessionCommands.build())
             .build()
@@ -311,6 +318,12 @@ class GramophonePlaybackService : MediaLibraryService(),
             SERVICE_QUERY_TIMER -> {
                 SessionResult(SessionResult.RESULT_SUCCESS).also {
                     it.extras.putInt("duration", timerDuration)
+                }
+            }
+
+            SERVICE_GET_LYRICS -> {
+                SessionResult(SessionResult.RESULT_SUCCESS).also {
+                    it.extras.putParcelableArray("lyrics", lyrics?.toTypedArray())
                 }
             }
 
@@ -346,7 +359,23 @@ class GramophonePlaybackService : MediaLibraryService(),
         return settable
     }
 
+    override fun onTracksChanged(tracks: Tracks) {
+        lyrics = null
+        for (i in tracks.groups) {
+            for (j in 0 until i.length) {
+                val trackMetadata = i.getTrackFormat(j).metadata ?: continue
+                lyrics = extractAndParseLyrics(
+                    mediaSession?.player?.currentMediaItem?.getFile(), trackMetadata) ?: continue
+            }
+        }
+        mediaSession!!.broadcastCustomCommand(
+            SessionCommand(SERVICE_GET_LYRICS, Bundle.EMPTY),
+            Bundle.EMPTY
+        )
+    }
+
     override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
+        lyrics = null
         lastPlayedManager.save()
     }
 
