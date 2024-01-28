@@ -60,9 +60,9 @@ android_library_import {
     sdk_version: "current",
 }
 
-android_library_import {
+java_import {
     name: "net.jthink_jaudiotagger",
-    aars: ["net.jthink/jaudiotagger/jaudiotagger-*.aar"],
+    jars: ["net.jthink/jaudiotagger/jaudiotagger-*.jar"],
     sdk_version: "current",
 }
 
