@@ -129,6 +129,7 @@ dependencies {
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
     debugImplementation("net.jthink:jaudiotagger:3.0.1")
     ksp("com.github.bumptech.glide:ksp:4.15.1")
+    runtimeOnly("org.jetbrains.kotlin:kotlin-parcelize-runtime:2.0.0-Beta1")
 }
 
 fun readProperties(propertiesFile: File) = Properties().apply {
@@ -144,7 +145,9 @@ configure<GenerateBpPluginExtension> {
             module.group.startsWith("androidx") -> {
                 module.group.startsWith("androidx.annotation")
             }
-            module.group.startsWith("org.jetbrains") -> true
+            module.group.startsWith("org.jetbrains") -> {
+                module.name != "kotlin-parcelize-runtime"
+            }
             module.group == "com.google.auto.value" -> true
             module.group == "com.google.errorprone" -> true
             module.group == "com.google.guava" -> true

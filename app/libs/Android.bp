@@ -2581,3 +2581,30 @@ android_library {
     ],
     java_version: "1.7",
 }
+
+java_import {
+    name: "Gramophone_org.jetbrains.kotlin_kotlin-parcelize-runtime-nodeps",
+    jars: ["org/jetbrains/kotlin/kotlin-parcelize-runtime/2.0.0-Beta1/kotlin-parcelize-runtime-2.0.0-Beta1.jar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+java_library_static {
+    name: "Gramophone_org.jetbrains.kotlin_kotlin-parcelize-runtime",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "Gramophone_org.jetbrains.kotlin_kotlin-parcelize-runtime-nodeps",
+        "kotlin-stdlib",
+        "org.jetbrains.kotlin_kotlin-android-extensions-runtime",
+    ],
+    java_version: "1.7",
+}
