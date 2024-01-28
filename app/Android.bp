@@ -39,5 +39,4 @@ android_app {
     optimize: {
         proguard_flags_files: ["proguard-rules.pro"],
     },
-	overrides: ["Music", "Eleven"],
 }
