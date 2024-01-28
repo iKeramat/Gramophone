@@ -50,4 +50,14 @@ android_app {
     ],
 
     platform_apis: true,
+
+    sdk_version: "current",
+
+    aaptflags: [
+        "--custom-package",
+        "org.akanework.gramophone",
+    ],
+
+    kotlincflags: ["-Xjvm-default=enable"],
+
 }
