@@ -13,6 +13,17 @@
 // limitations under the License.
 
 android_library_import {
+    name: "androidx.media3_media3-exoplayer",
+    aars: ["androidx.media3/media3-exoplayer/media3-exoplayer-*.aar"],
+    sdk_version: "current",
+}
+android_library_import {
+    name: "androidx.media3_media3-exoplayer-midi",
+    aars: ["androidx.media3/media3-exoplayer-midi/media3-exoplayer-midi-*.aar"],
+    sdk_version: "current",
+}
+
+android_library_import {
     name: "androidx.preference_preference-ktx",
     aars: ["androidx.preference/preference-ktx/preference-ktx-*.aar"],
     sdk_version: "current",
