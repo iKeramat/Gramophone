@@ -13,8 +13,8 @@ android_app {
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
         "Gramophone_androidx.core_core-ktx",
-        "androidx.annotation_annotation",
         "Gramophone_androidx.activity_activity-ktx",
+        "androidx.annotation_annotation",
         "Gramophone_androidx.transition_transition-ktx",
         "Gramophone_androidx.fragment_fragment-ktx",
         "Gramophone_androidx.lifecycle_lifecycle-viewmodel-ktx",
@@ -26,7 +26,6 @@ android_app {
         "Gramophone_androidx.preference_preference-ktx",
         "Gramophone_com.github.bumptech.glide_glide",
         "Gramophone_com.google.android.material_material",
-        "Gramophone_net.jthink_jaudiotagger",
         "Gramophone_me.zhanghai.android.fastscroll_library",
     ],
     optional_uses_libs: [

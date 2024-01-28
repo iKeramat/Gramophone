@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2023 The LineageOS Project
+// SPDX-FileCopyrightText: 2024 The LineageOS Project
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -7,7 +7,7 @@
 
 android_library_import {
     name: "Gramophone_androidx.activity_activity-ktx-nodeps",
-    aars: ["androidx/activity/activity-ktx/1.8.1/activity-ktx-1.8.1.aar"],
+    aars: ["androidx/activity/activity-ktx/1.8.2/activity-ktx-1.8.2.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -32,7 +32,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/activity/activity-ktx/1.8.1/AndroidManifest.xml",
+    manifest: "androidx/activity/activity-ktx/1.8.2/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.activity_activity-ktx-nodeps",
         "Gramophone_androidx.activity_activity",
@@ -47,7 +47,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.activity_activity-nodeps",
-    aars: ["androidx/activity/activity/1.8.1/activity-1.8.1.aar"],
+    aars: ["androidx/activity/activity/1.8.2/activity-1.8.2.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -75,7 +75,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/activity/activity/1.8.1/AndroidManifest.xml",
+    manifest: "androidx/activity/activity/1.8.2/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.activity_activity-nodeps",
         "Gramophone_androidx.collection_collection",
@@ -445,7 +445,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.core_core-ktx-nodeps",
-    aars: ["androidx/core/core-ktx/1.13.0-alpha02/core-ktx-1.13.0-alpha02.aar"],
+    aars: ["androidx/core/core-ktx/1.13.0-alpha03/core-ktx-1.13.0-alpha03.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -466,7 +466,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/core/core-ktx/1.13.0-alpha02/AndroidManifest.xml",
+    manifest: "androidx/core/core-ktx/1.13.0-alpha03/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.core_core-ktx-nodeps",
         "Gramophone_androidx.core_core",
@@ -477,7 +477,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.core_core-nodeps",
-    aars: ["androidx/core/core/1.13.0-alpha02/core-1.13.0-alpha02.aar"],
+    aars: ["androidx/core/core/1.13.0-alpha03/core-1.13.0-alpha03.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -503,7 +503,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/core/core/1.13.0-alpha02/AndroidManifest.xml",
+    manifest: "androidx/core/core/1.13.0-alpha03/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.core_core-nodeps",
         "androidx.annotation_annotation-experimental",
@@ -803,7 +803,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.fragment_fragment-ktx-nodeps",
-    aars: ["androidx/fragment/fragment-ktx/1.7.0-alpha07/fragment-ktx-1.7.0-alpha07.aar"],
+    aars: ["androidx/fragment/fragment-ktx/1.7.0-alpha09/fragment-ktx-1.7.0-alpha09.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -830,7 +830,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/fragment/fragment-ktx/1.7.0-alpha07/AndroidManifest.xml",
+    manifest: "androidx/fragment/fragment-ktx/1.7.0-alpha09/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.fragment_fragment-ktx-nodeps",
         "Gramophone_androidx.activity_activity-ktx",
@@ -847,7 +847,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.fragment_fragment-nodeps",
-    aars: ["androidx/fragment/fragment/1.7.0-alpha07/fragment-1.7.0-alpha07.aar"],
+    aars: ["androidx/fragment/fragment/1.7.0-alpha09/fragment-1.7.0-alpha09.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -879,7 +879,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/fragment/fragment/1.7.0-alpha07/AndroidManifest.xml",
+    manifest: "androidx/fragment/fragment/1.7.0-alpha09/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.fragment_fragment-nodeps",
         "Gramophone_androidx.activity_activity",
@@ -967,7 +967,7 @@ android_library {
 
 java_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-common-nodeps",
-    jars: ["androidx/lifecycle/lifecycle-common/2.7.0-rc01/lifecycle-common-2.7.0-rc01.jar"],
+    jars: ["androidx/lifecycle/lifecycle-common/2.7.0/lifecycle-common-2.7.0.jar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -994,7 +994,7 @@ java_library_static {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-livedata-core-ktx-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-livedata-core-ktx/2.7.0-rc01/lifecycle-livedata-core-ktx-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-livedata-core-ktx/2.7.0/lifecycle-livedata-core-ktx-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1015,7 +1015,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-livedata-core-ktx/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-livedata-core-ktx/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-livedata-core-ktx-nodeps",
         "Gramophone_androidx.lifecycle_lifecycle-livedata-core",
@@ -1026,7 +1026,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-livedata-core-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-livedata-core/2.7.0-rc01/lifecycle-livedata-core-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-livedata-core/2.7.0/lifecycle-livedata-core-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1049,7 +1049,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-livedata-core/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-livedata-core/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-livedata-core-nodeps",
         "Gramophone_androidx.arch.core_core-common",
@@ -1062,7 +1062,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-livedata-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-livedata/2.7.0-rc01/lifecycle-livedata-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-livedata/2.7.0/lifecycle-livedata-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1086,7 +1086,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-livedata/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-livedata/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-livedata-nodeps",
         "Gramophone_androidx.arch.core_core-common",
@@ -1100,7 +1100,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-process-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-process/2.7.0-rc01/lifecycle-process-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-process/2.7.0/lifecycle-process-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1122,7 +1122,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-process/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-process/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-process-nodeps",
         "Gramophone_androidx.lifecycle_lifecycle-runtime",
@@ -1134,7 +1134,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-runtime-ktx-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-runtime-ktx/2.7.0-rc01/lifecycle-runtime-ktx-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-runtime-ktx/2.7.0/lifecycle-runtime-ktx-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1156,7 +1156,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-runtime-ktx/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-runtime-ktx/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-runtime-ktx-nodeps",
         "Gramophone_androidx.lifecycle_lifecycle-runtime",
@@ -1168,7 +1168,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-runtime-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-runtime/2.7.0-rc01/lifecycle-runtime-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-runtime/2.7.0/lifecycle-runtime-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1192,7 +1192,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-runtime/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-runtime/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-runtime-nodeps",
         "Gramophone_androidx.arch.core_core-common",
@@ -1206,7 +1206,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-viewmodel-ktx-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-viewmodel-ktx/2.7.0-rc01/lifecycle-viewmodel-ktx-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-viewmodel-ktx/2.7.0/lifecycle-viewmodel-ktx-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1228,7 +1228,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-viewmodel-ktx/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-viewmodel-ktx/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-viewmodel-ktx-nodeps",
         "Gramophone_androidx.lifecycle_lifecycle-viewmodel",
@@ -1240,7 +1240,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-viewmodel-savedstate-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-viewmodel-savedstate/2.7.0-rc01/lifecycle-viewmodel-savedstate-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-viewmodel-savedstate/2.7.0/lifecycle-viewmodel-savedstate-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1265,7 +1265,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-viewmodel-savedstate/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-viewmodel-savedstate/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-viewmodel-savedstate-nodeps",
         "Gramophone_androidx.core_core-ktx",
@@ -1280,7 +1280,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.lifecycle_lifecycle-viewmodel-nodeps",
-    aars: ["androidx/lifecycle/lifecycle-viewmodel/2.7.0-rc01/lifecycle-viewmodel-2.7.0-rc01.aar"],
+    aars: ["androidx/lifecycle/lifecycle-viewmodel/2.7.0/lifecycle-viewmodel-2.7.0.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1300,7 +1300,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/lifecycle/lifecycle-viewmodel/2.7.0-rc01/AndroidManifest.xml",
+    manifest: "androidx/lifecycle/lifecycle-viewmodel/2.7.0/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.lifecycle_lifecycle-viewmodel-nodeps",
         "kotlin-stdlib",
@@ -1404,7 +1404,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-common-nodeps",
-    aars: ["androidx/media3/media3-common/1.2.0/media3-common-1.2.0.aar"],
+    aars: ["androidx/media3/media3-common/1.2.1/media3-common-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1425,7 +1425,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-common/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-common/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-common-nodeps",
         "guava",
@@ -1436,7 +1436,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-container-nodeps",
-    aars: ["androidx/media3/media3-container/1.2.0/media3-container-1.2.0.aar"],
+    aars: ["androidx/media3/media3-container/1.2.1/media3-container-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1456,7 +1456,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-container/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-container/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-container-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -1466,7 +1466,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-database-nodeps",
-    aars: ["androidx/media3/media3-database/1.2.0/media3-database-1.2.0.aar"],
+    aars: ["androidx/media3/media3-database/1.2.1/media3-database-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1486,7 +1486,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-database/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-database/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-database-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -1496,7 +1496,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-datasource-nodeps",
-    aars: ["androidx/media3/media3-datasource/1.2.0/media3-datasource-1.2.0.aar"],
+    aars: ["androidx/media3/media3-datasource/1.2.1/media3-datasource-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1518,7 +1518,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-datasource/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-datasource/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-datasource-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -1530,7 +1530,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-decoder-nodeps",
-    aars: ["androidx/media3/media3-decoder/1.2.0/media3-decoder-1.2.0.aar"],
+    aars: ["androidx/media3/media3-decoder/1.2.1/media3-decoder-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1550,7 +1550,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-decoder/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-decoder/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-decoder-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -1560,7 +1560,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-exoplayer-midi-nodeps",
-    aars: ["androidx/media3/media3-exoplayer-midi/1.2.0/media3-exoplayer-midi-1.2.0.aar"],
+    aars: ["androidx/media3/media3-exoplayer-midi/1.2.1/media3-exoplayer-midi-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1584,7 +1584,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-exoplayer-midi/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-exoplayer-midi/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-exoplayer-midi-nodeps",
         "Gramophone_androidx.media3_media3-exoplayer",
@@ -1598,7 +1598,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-exoplayer-nodeps",
-    aars: ["androidx/media3/media3-exoplayer/1.2.0/media3-exoplayer-1.2.0.aar"],
+    aars: ["androidx/media3/media3-exoplayer/1.2.1/media3-exoplayer-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1626,7 +1626,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-exoplayer/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-exoplayer/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-exoplayer-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -1644,7 +1644,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-extractor-nodeps",
-    aars: ["androidx/media3/media3-extractor/1.2.0/media3-extractor-1.2.0.aar"],
+    aars: ["androidx/media3/media3-extractor/1.2.1/media3-extractor-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1666,7 +1666,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-extractor/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-extractor/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-extractor-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -1678,7 +1678,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.media3_media3-session-nodeps",
-    aars: ["androidx/media3/media3-session/1.2.0/media3-session-1.2.0.aar"],
+    aars: ["androidx/media3/media3-session/1.2.1/media3-session-1.2.1.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1702,7 +1702,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/media3/media3-session/1.2.0/AndroidManifest.xml",
+    manifest: "androidx/media3/media3-session/1.2.1/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.media3_media3-session-nodeps",
         "Gramophone_androidx.media3_media3-common",
@@ -2077,7 +2077,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.transition_transition-ktx-nodeps",
-    aars: ["androidx/transition/transition-ktx/1.5.0-alpha05/transition-ktx-1.5.0-alpha05.aar"],
+    aars: ["androidx/transition/transition-ktx/1.5.0-alpha06/transition-ktx-1.5.0-alpha06.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -2098,7 +2098,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/transition/transition-ktx/1.5.0-alpha05/AndroidManifest.xml",
+    manifest: "androidx/transition/transition-ktx/1.5.0-alpha06/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.transition_transition-ktx-nodeps",
         "Gramophone_androidx.transition_transition",
@@ -2109,7 +2109,7 @@ android_library {
 
 android_library_import {
     name: "Gramophone_androidx.transition_transition-nodeps",
-    aars: ["androidx/transition/transition/1.5.0-alpha05/transition-1.5.0-alpha05.aar"],
+    aars: ["androidx/transition/transition/1.5.0-alpha06/transition-1.5.0-alpha06.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -2131,7 +2131,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/transition/transition/1.5.0-alpha05/AndroidManifest.xml",
+    manifest: "androidx/transition/transition/1.5.0-alpha06/AndroidManifest.xml",
     static_libs: [
         "Gramophone_androidx.transition_transition-nodeps",
         "Gramophone_androidx.collection_collection",
@@ -2490,7 +2490,7 @@ java_library_static {
 
 android_library_import {
     name: "Gramophone_com.google.android.material_material-nodeps",
-    aars: ["com/google/android/material/material/1.11.0-rc01/material-1.11.0-rc01.aar"],
+    aars: ["com/google/android/material/material/1.12.0-alpha03/material-1.12.0-alpha03.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -2526,7 +2526,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "com/google/android/material/material/1.11.0-rc01/AndroidManifest.xml",
+    manifest: "com/google/android/material/material/1.12.0-alpha03/AndroidManifest.xml",
     static_libs: [
         "Gramophone_com.google.android.material_material-nodeps",
         "Gramophone_androidx.activity_activity",
@@ -2578,31 +2578,6 @@ android_library {
         "Gramophone_me.zhanghai.android.fastscroll_library-nodeps",
         "Gramophone_androidx.appcompat_appcompat",
         "Gramophone_androidx.recyclerview_recyclerview",
-    ],
-    java_version: "1.7",
-}
-
-java_import {
-    name: "Gramophone_net.jthink_jaudiotagger-nodeps",
-    jars: ["net/jthink/jaudiotagger/3.0.1/jaudiotagger-3.0.1.jar"],
-    sdk_version: "34",
-    min_sdk_version: "14",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-}
-
-java_library_static {
-    name: "Gramophone_net.jthink_jaudiotagger",
-    sdk_version: "34",
-    min_sdk_version: "14",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "Gramophone_net.jthink_jaudiotagger-nodeps",
     ],
     java_version: "1.7",
 }
