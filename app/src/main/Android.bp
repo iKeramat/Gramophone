@@ -49,8 +49,6 @@ android_app {
         "com.github.bumptech.glide_ksp",
     ],
 
-    platform_apis: true,
-
     sdk_version: "current",
 
     aaptflags: [
