@@ -34,12 +34,12 @@ android_app {
         "androidx.lifecycle_lifecycle-viewmodel-ktx",
         "androidx.appcompat_appcompat",
         "androidx-constraintlayout_constraintlayout",
-        "androidx.media3.media3-session",
         "kotlin-annotations",
         "kotlin-stdlib",
         //prebuilts:
         "androidx.media3_media3-exoplayer",
         "androidx.media3_media3-exoplayer-midi",
+        "androidx.media3_media3-session",
         "androidx.preference_preference-ktx",
         "com.github.bumptech.glide_glide",
         "com.google.android.material_material",

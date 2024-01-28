@@ -17,9 +17,16 @@ android_library_import {
     aars: ["androidx.media3/media3-exoplayer/media3-exoplayer-*.aar"],
     sdk_version: "current",
 }
+
 android_library_import {
     name: "androidx.media3_media3-exoplayer-midi",
     aars: ["androidx.media3/media3-exoplayer-midi/media3-exoplayer-midi-*.aar"],
+    sdk_version: "current",
+}
+
+android_library_import {
+    name: "androidx.media3_media3-session",
+    aars: ["androidx.media3/media3-session/media3-session-*.aar"],
     sdk_version: "current",
 }
 
