@@ -146,7 +146,8 @@ configure<GenerateBpPluginExtension> {
                 module.group.startsWith("androidx.annotation")
             }
             module.group.startsWith("org.jetbrains") -> {
-                module.name != "kotlin-parcelize-runtime"
+                module.name != "kotlin-android-extensions-runtime" 
+                && module.name != "kotlin-parcelize-runtime"
             }
             module.group == "com.google.auto.value" -> true
             module.group == "com.google.errorprone" -> true
